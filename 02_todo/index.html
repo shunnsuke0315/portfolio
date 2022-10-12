@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo</title>
+</head>
+
+<style>
+    @charset"UTF-8";
+    body{
+        height: 100vh;
+        margin:0;
+        text-align: center;
+        font-family: 'Crimson Text', serif;
+    }
+    header{
+        padding: 15px;
+    }
+    main{
+        width: 50%;
+        height: 70%;
+        margin: 0 auto;
+        padding: 10px;
+        background-color: #82aaaa;
+    }
+    h1{
+        font-size: 30px;
+    }
+    li{
+        list-style: none;
+    }
+
+    footer{
+        position:absolute;
+        bottom:15px;
+        left:50%;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+    }
+</style>
+
+<body>
+    <header>
+        <p>PRODUCTS 02</p>
+    </header>
+    <main>
+        <h1>todoリスト</h1>
+        <div class="from">
+            <from>
+                <input id="input" type="text">
+                <button id="but">追加</button>
+            </from>
+        </div>
+        <div id="list">
+            <ul class="ul">
+
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <p>@2022.07.18</p>
+    </footer>
+    <script>
+        'use strict';
+
+        const input = document.getElementById('input');
+        const but = document.getElementById('but');
+        const list = document.getElementById('list');
+
+        but.addEventListener('click',function(){
+            if(input.value == ''){
+            
+            }else{
+                const li = document.createElement('li');
+                const item = list.appendChild(li);
+                item.innerText = input.value;
+                input.value = '';
+
+                const button = document.createElement('button');
+                const listBut = li.appendChild(button);
+                listBut.innerText = '完了';
+
+                button.addEventListener('click',function(){
+                  const closest = button.closest('li');
+                   list.removeChild(closest);
+                });
+
+            }
+            
+            
+        });
+
+    </script>
+</body>
+</html>
